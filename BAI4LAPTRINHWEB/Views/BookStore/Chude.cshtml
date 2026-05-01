@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BAI4LAPTRINHWEB.Models.CHUDE>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("SPTheoCHUDE","BookStore", new { id = item.MaCD })">
+            @item.TenChuDe
+        </a>
+    </li>
+}

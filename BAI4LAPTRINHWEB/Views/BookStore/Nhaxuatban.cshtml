@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BAI4LAPTRINHWEB.Models.NHAXUATBAN>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@Url.Action("SPTheoNXB","BookStore", new { id = item.MaNXB })">
+                @item.TenNXB
+            </a>
+        </li>
+    }
+</ul>
