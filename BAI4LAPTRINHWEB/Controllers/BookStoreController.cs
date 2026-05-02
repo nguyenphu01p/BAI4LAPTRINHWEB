@@ -40,5 +40,22 @@ namespace BAI4LAPTRINHWEB.Controllers
             var NXB = from cd in data.NHAXUATBANs select cd;
             return PartialView(NXB);
         }
+        public ActionResult SPTheochude(int id)
+        {
+            var sach = from s in data.SACHes where s.MaCD == id select s;
+            return View(sach);
+        }
+        public ActionResult SPTheoNXB(int id)
+        {
+            var sach = from s in data.SACHes where s.MaNXB == id select s;
+            return View(sach);
+        }
+        public ActionResult Details(int id)
+        {
+            var sach = from s in data.SACHes
+                       where s.Masach == id
+                       select s;
+            return View(sach.Single());
+        }
     }
 }

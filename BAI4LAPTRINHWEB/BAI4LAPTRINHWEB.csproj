@@ -291,6 +291,9 @@
     <Content Include="Views\BookStore\Nhaxuatban.cshtml" />
     <Content Include="Views\Home\lienhe.cshtml" />
     <Content Include="Views\Home\vetoi.cshtml" />
+    <Content Include="Views\BookStore\SPTheochude.cshtml" />
+    <Content Include="Views\BookStore\SPTheoNXB.cshtml" />
+    <Content Include="Views\BookStore\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
