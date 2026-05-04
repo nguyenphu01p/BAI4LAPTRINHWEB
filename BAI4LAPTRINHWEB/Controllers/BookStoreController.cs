@@ -10,7 +10,7 @@ namespace BAI4LAPTRINHWEB.Controllers
     public class BookStoreController : Controller
     {
         // Tạo đối tượng kết nối CSDL
-        dbQLBanSACHDataContext data = new dbQLBanSACHDataContext("Data Source=Nguyễn-phú;Initial Catalog=QLBANSACH;Integrated Security=True;TrustServerCertificate=True");
+        dbQLBansachDataContext data = new dbQLBansachDataContext("");
 
         // Hàm lấy sách mới
         private List<SACH> LaySACHmoi(int count)

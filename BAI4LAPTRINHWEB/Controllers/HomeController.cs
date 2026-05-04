@@ -26,5 +26,14 @@ namespace BAI4LAPTRINHWEB.Controllers
             ViewBag.Message = "Bạn có thể tìm tôi tại đây.";
             return View();
         }
+        public ActionResult Dangky()
+        {
+            return View();
+        }
+        public ActionResult Dangnhap()
+        {
+            return View();
+        }
+
     }
 }

@@ -23,7 +23,7 @@ namespace BAI4LAPTRINHWEB.Models
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLBANSACH")]
-	public partial class dbQLBanSACHDataContext : System.Data.Linq.DataContext
+	public partial class dbQLBansachDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -54,27 +54,30 @@ namespace BAI4LAPTRINHWEB.Models
     partial void InsertNHAXUATBAN(NHAXUATBAN instance);
     partial void UpdateNHAXUATBAN(NHAXUATBAN instance);
     partial void DeleteNHAXUATBAN(NHAXUATBAN instance);
+    partial void InsertAdmin(Admin instance);
+    partial void UpdateAdmin(Admin instance);
+    partial void DeleteAdmin(Admin instance);
     #endregion
 		
-		public dbQLBanSACHDataContext(string connection) : 
+		public dbQLBansachDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbQLBanSACHDataContext(System.Data.IDbConnection connection) : 
+		public dbQLBansachDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbQLBanSACHDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public dbQLBansachDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbQLBanSACHDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public dbQLBansachDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -143,6 +146,14 @@ namespace BAI4LAPTRINHWEB.Models
 				return this.GetTable<NHAXUATBAN>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Admin> Admins
+		{
+			get
+			{
+				return this.GetTable<Admin>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETDONTHANG")]
@@ -153,7 +164,7 @@ namespace BAI4LAPTRINHWEB.Models
 		
 		private int _MaDonHang;
 		
-		private int _Masach;
+		private int _MaSach;
 		
 		private System.Nullable<int> _Soluong;
 		
@@ -169,8 +180,8 @@ namespace BAI4LAPTRINHWEB.Models
     partial void OnCreated();
     partial void OnMaDonHangChanging(int value);
     partial void OnMaDonHangChanged();
-    partial void OnMasachChanging(int value);
-    partial void OnMasachChanged();
+    partial void OnMaSachChanging(int value);
+    partial void OnMaSachChanged();
     partial void OnSoluongChanging(System.Nullable<int> value);
     partial void OnSoluongChanged();
     partial void OnDongiaChanging(System.Nullable<decimal> value);
@@ -208,26 +219,26 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Masach", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Masach
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaSach
 		{
 			get
 			{
-				return this._Masach;
+				return this._MaSach;
 			}
 			set
 			{
-				if ((this._Masach != value))
+				if ((this._MaSach != value))
 				{
 					if (this._SACH.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMasachChanging(value);
+					this.OnMaSachChanging(value);
 					this.SendPropertyChanging();
-					this._Masach = value;
-					this.SendPropertyChanged("Masach");
-					this.OnMasachChanged();
+					this._MaSach = value;
+					this.SendPropertyChanged("MaSach");
+					this.OnMaSachChanged();
 				}
 			}
 		}
@@ -306,7 +317,7 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDONTHANG", Storage="_SACH", ThisKey="Masach", OtherKey="Masach", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDONTHANG", Storage="_SACH", ThisKey="MaSach", OtherKey="Masach", IsForeignKey=true)]
 		public SACH SACH
 		{
 			get
@@ -329,11 +340,11 @@ namespace BAI4LAPTRINHWEB.Models
 					if ((value != null))
 					{
 						value.CHITIETDONTHANGs.Add(this);
-						this._Masach = value.Masach;
+						this._MaSach = value.Masach;
 					}
 					else
 					{
-						this._Masach = default(int);
+						this._MaSach = default(int);
 					}
 					this.SendPropertyChanged("SACH");
 				}
@@ -1237,7 +1248,7 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDONTHANG", Storage="_CHITIETDONTHANGs", ThisKey="Masach", OtherKey="Masach")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_CHITIETDONTHANG", Storage="_CHITIETDONTHANGs", ThisKey="Masach", OtherKey="MaSach")]
 		public EntitySet<CHITIETDONTHANG> CHITIETDONTHANGs
 		{
 			get
@@ -1250,7 +1261,7 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_VIETSACH", Storage="_VIETSACHes", ThisKey="Masach", OtherKey="Masach")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_VIETSACH", Storage="_VIETSACHes", ThisKey="Masach", OtherKey="MaSach")]
 		public EntitySet<VIETSACH> VIETSACHes
 		{
 			get
@@ -1570,7 +1581,7 @@ namespace BAI4LAPTRINHWEB.Models
 		
 		private int _MaTG;
 		
-		private int _Masach;
+		private int _MaSach;
 		
 		private string _VaiTro;
 		
@@ -1586,8 +1597,8 @@ namespace BAI4LAPTRINHWEB.Models
     partial void OnCreated();
     partial void OnMaTGChanging(int value);
     partial void OnMaTGChanged();
-    partial void OnMasachChanging(int value);
-    partial void OnMasachChanged();
+    partial void OnMaSachChanging(int value);
+    partial void OnMaSachChanged();
     partial void OnVaiTroChanging(string value);
     partial void OnVaiTroChanged();
     partial void OnViTriChanging(string value);
@@ -1625,26 +1636,26 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Masach", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Masach
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaSach
 		{
 			get
 			{
-				return this._Masach;
+				return this._MaSach;
 			}
 			set
 			{
-				if ((this._Masach != value))
+				if ((this._MaSach != value))
 				{
 					if (this._SACH.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnMasachChanging(value);
+					this.OnMaSachChanging(value);
 					this.SendPropertyChanging();
-					this._Masach = value;
-					this.SendPropertyChanged("Masach");
-					this.OnMasachChanged();
+					this._MaSach = value;
+					this.SendPropertyChanged("MaSach");
+					this.OnMaSachChanged();
 				}
 			}
 		}
@@ -1689,7 +1700,7 @@ namespace BAI4LAPTRINHWEB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_VIETSACH", Storage="_SACH", ThisKey="Masach", OtherKey="Masach", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SACH_VIETSACH", Storage="_SACH", ThisKey="MaSach", OtherKey="Masach", IsForeignKey=true)]
 		public SACH SACH
 		{
 			get
@@ -1712,11 +1723,11 @@ namespace BAI4LAPTRINHWEB.Models
 					if ((value != null))
 					{
 						value.VIETSACHes.Add(this);
-						this._Masach = value.Masach;
+						this._MaSach = value.Masach;
 					}
 					else
 					{
-						this._Masach = default(int);
+						this._MaSach = default(int);
 					}
 					this.SendPropertyChanged("SACH");
 				}
@@ -1937,6 +1948,116 @@ namespace BAI4LAPTRINHWEB.Models
 		{
 			this.SendPropertyChanging();
 			entity.NHAXUATBAN = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
+	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _UserAdmin;
+		
+		private string _PassAdmin;
+		
+		private string _Hoten;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserAdminChanging(string value);
+    partial void OnUserAdminChanged();
+    partial void OnPassAdminChanging(string value);
+    partial void OnPassAdminChanged();
+    partial void OnHotenChanging(string value);
+    partial void OnHotenChanged();
+    #endregion
+		
+		public Admin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserAdmin", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserAdmin
+		{
+			get
+			{
+				return this._UserAdmin;
+			}
+			set
+			{
+				if ((this._UserAdmin != value))
+				{
+					this.OnUserAdminChanging(value);
+					this.SendPropertyChanging();
+					this._UserAdmin = value;
+					this.SendPropertyChanged("UserAdmin");
+					this.OnUserAdminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassAdmin", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PassAdmin
+		{
+			get
+			{
+				return this._PassAdmin;
+			}
+			set
+			{
+				if ((this._PassAdmin != value))
+				{
+					this.OnPassAdminChanging(value);
+					this.SendPropertyChanging();
+					this._PassAdmin = value;
+					this.SendPropertyChanged("PassAdmin");
+					this.OnPassAdminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hoten", DbType="NVarChar(50)")]
+		public string Hoten
+		{
+			get
+			{
+				return this._Hoten;
+			}
+			set
+			{
+				if ((this._Hoten != value))
+				{
+					this.OnHotenChanging(value);
+					this.SendPropertyChanging();
+					this._Hoten = value;
+					this.SendPropertyChanged("Hoten");
+					this.OnHotenChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
